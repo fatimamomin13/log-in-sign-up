@@ -10,42 +10,30 @@
 
     <link rel="stylesheet" href="styles.css">
 
-    <title>Sign Up</title>
+    <title>Dashboard</title>
   </head>
   <body>
-    <div class="login">
-        <form name='form-login'>
-    
-            <h1>REGISTER</h1>
-    
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="email" required>
 
-            <label for="uname">Userame</label>
-            <input type="uname" id="uname" placeholder="Username" required>
-    
-            <label for="pw">Password</label>
-            <input type="password"
-                   id= "pw"
-                   placeholder="Password" required>
-    
-            <ul class="helper-text">
-                <li class="length">Must be atleast 3 characters long</li>
-                <li class="lowercase">Must contain a lowercase letter.</li>
-                <li class="uppercase">Must contain an uppercase letter.</li>
-                <li class="special">Must contain a number or special character.</li>
-            </ul>
-            <input id="rgstr_btn" type="submit" value="Sign Up" onclick="store()">
-            
-            <hr>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ">
+              <p class="nav-link active" id=welcome > </p>
+              <a class="nav-link active"  href="./index.html">Log Out</a>
+            </div>
+          </div>
+        </div>
+    </nav>
 
-          <label class="label">Already a User?</label>
-          <input id="Signin_btn" type="submit" value="Login" onclick="window.location='login.html';">
-        </form>
-    </div>
+    
+    <script>
+        window.onload = function() {
+            document.getElementById('welcome').innerText = "Hello, " + localStorage.uname;
+        };
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <script type="text/javascript" src="jquery-1.11.3.min.js"></script> -->
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
     <script type="text/javascript" language="javascript" src="index.js"></script>
 
     <!-- Optional JavaScript; choose one of the two! -->

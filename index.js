@@ -1,6 +1,7 @@
 
 function store(){
-
+    event.preventDefault();
+    
     var email = document.getElementById('email');
     var pw = document.getElementById('pw');
     var lowerCaseLetters = /[a-z]/g;
@@ -29,16 +30,31 @@ function store(){
         alert('please add 1 lovercase letter');
 
     }else{
+        userData = {
+            uname: document.getElementById('uname').value,       
+            email: document.getElementById('email').value, 
+            pw: document.getElementById('pw').value
+        }
+        
+        localStorage.setItem('userData', JSON.stringify(userData));
+        // let userObj = JSON.parse(userData);
+
+        console.log(userData);
+
         localStorage.setItem('email', email.value);
         localStorage.setItem('pw', pw.value);
+        localStorage.setItem('uname', uname.value);
+
         alert('Your account has been created');
-        alert(email.value);
-        // href= 'login.html';
+
+        window.location.pathname = "/login.html";
+
     }
 }
 
 //checking
 function check(){
+    event.preventDefault();
     var storedEmail = localStorage.getItem('email');
     var storedPw = localStorage.getItem('pw');
 
@@ -47,6 +63,7 @@ function check(){
 
     if(email.value == storedEmail && userPw.value == storedPw){
         alert('You are logged in.');
+        window.location.pathname = "/dashboard.html";
     }else{
         alert('Error on login');
     }
